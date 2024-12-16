@@ -1,0 +1,18 @@
+trigger:
+- master
+
+pool:
+  vmImage: windows-latest
+
+steps:
+# Checkout repository
+- checkout: self
+  fetchDepth: 0
+
+# Debug environment
+- script: |
+    echo "Debugging Environment"
+    echo "Current Directory: $(System.DefaultWorkingDirectory)"
+    echo "Files in Directory:"
+    ls
+  displayName: 'Debug Environment'
